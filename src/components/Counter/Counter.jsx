@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, memo} from 'react';
 import PropTypes from 'prop-types';
 
 import IconButton from '../UI/IconButton.jsx';
@@ -40,7 +40,7 @@ function isPrime(number) {
  * @param {number} initialCount
  * @return {JSX.Element}
  */
-const Counter = function Counter({initialCount}) {
+const Counter = memo(function Counter({initialCount}) {
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
 
@@ -77,7 +77,7 @@ const Counter = function Counter({initialCount}) {
       </p>
     </section>
   );
-};
+});
 
 Counter.propTypes = {
   initialCount: PropTypes.number.isRequired,
