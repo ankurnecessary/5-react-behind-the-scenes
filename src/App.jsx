@@ -1,19 +1,32 @@
-import { useState } from 'react';
+import React, {useState} from 'react';
 
 import Counter from './components/Counter/Counter.jsx';
 import Header from './components/Header.jsx';
-import { log } from './log.js';
+import {log} from './log.js';
 
+/**
+ * Main component that bootstraps the application
+ *
+ * @return {JSX.Element}
+ */
 function App() {
   log('<App /> rendered');
 
   const [enteredNumber, setEnteredNumber] = useState(0);
   const [chosenCount, setChosenCount] = useState(0);
 
+  /**
+   * To handle the value entered by the user
+   *
+   * @param {InputEvent} event
+   */
   function handleChange(event) {
     setEnteredNumber(+event.target.value);
   }
 
+  /**
+   * To handle the click event of the set button
+   */
   function handleSetClick() {
     setChosenCount(enteredNumber);
     setEnteredNumber(0);
