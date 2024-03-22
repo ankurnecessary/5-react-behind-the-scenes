@@ -40,7 +40,7 @@ function isPrime(number) {
  * @param {number} initialCount
  * @return {JSX.Element}
  */
-const Counter = memo(function Counter({initialCount}) {
+const Counter = function Counter({initialCount}) {
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
 
@@ -77,7 +77,7 @@ const Counter = memo(function Counter({initialCount}) {
       </p>
     </section>
   );
-});
+};
 
 Counter.propTypes = {
   initialCount: PropTypes.number.isRequired,
