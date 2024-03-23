@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import {log} from '../../log.js';
 
@@ -10,7 +10,7 @@ import {log} from '../../log.js';
  * @param {any} props
  * @return {JSX.Element}
  */
-export default function IconButton({children, icon, ...props}) {
+const IconButton = memo(function IconButton({children, icon, ...props}) {
   log('<IconButton /> rendered', 2);
 
   const Icon = icon;
@@ -20,9 +20,11 @@ export default function IconButton({children, icon, ...props}) {
       <span className="button-text">{children}</span>
     </button>
   );
-}
+});
 
 IconButton.propTypes = {
   children: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.elementType,
 };
+
+export default IconButton;

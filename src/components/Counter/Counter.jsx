@@ -1,4 +1,4 @@
-import React, {useState, memo} from 'react';
+import React, {useState, memo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import IconButton from '../UI/IconButton.jsx';
@@ -49,16 +49,16 @@ const Counter = function Counter({initialCount}) {
   /**
    * To decrease the counter
    */
-  function handleDecrement() {
+  const handleDecrement = useCallback(function handleDecrement() {
     setCounter((prevCounter) => prevCounter - 1);
-  }
+  }, []);
 
   /**
    * To increase the counter
    */
-  function handleIncrement() {
+  const handleIncrement = useCallback(function handleIncrement() {
     setCounter((prevCounter) => prevCounter + 1);
-  }
+  }, []);
 
   return (
     <section className="counter">
