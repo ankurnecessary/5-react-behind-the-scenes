@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+import {log} from '../../log.js';
 
-import { log } from '../../log.js';
-
-function HistoryItem({ count }) {
+/**
+ * Component to show the history of changes in the count
+ *
+ * @param {number} count
+ * @return {JSX.Element}
+ */
+function HistoryItem({count}) {
   log('<HistoryItem /> rendered', 3);
 
   const [selected, setSelected] = useState(false);
 
+  /**
+   * To handle click of a history item
+   */
   function handleClick() {
     setSelected((prevSelected) => !prevSelected);
   }
@@ -18,7 +27,17 @@ function HistoryItem({ count }) {
   );
 }
 
-export default function CounterHistory({ history }) {
+HistoryItem.propTypes = {
+  count: PropTypes.number.isRequired,
+};
+
+/**
+ * To show the history of the counter component rendered on the screen
+ *
+ * @param {Array<number>} history
+ * @return {JSX.Element}
+ */
+export default function CounterHistory({history}) {
   log('<CounterHistory /> rendered', 2);
 
   return (
@@ -29,3 +48,7 @@ export default function CounterHistory({ history }) {
     </ol>
   );
 }
+
+CounterHistory.propTypes = {
+  history: PropTypes.array.isRequired,
+};
