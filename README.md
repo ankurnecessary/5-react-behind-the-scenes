@@ -36,6 +36,10 @@ Working with:
 32. [React.memo](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.raq8jq8e7749)
 33. We can use React.memo() with useCallback() too.
 34. [useMemo()](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.cf9uscl5y5c8)
+35. Using key attribute and it's value as the array index in repeating element in the JSX is a bad idea. Instead we should use id in the array elements as the value of the key attribute. It increases performance and remove functionality issues.
+36. Using key attribute in the component tag is another pattern that could help us in re-initializing the component. So, it is like reloading a component with new prop values instead of using useEffect() to do so.
+37. If we have multiple state functions being fired at once, may be within a function, then that doesn't mean that our component will also get rerendered multiple times (once for each state function call). Instead it will render only once.
+38. We can use millionjs to increase the speed and performance of our react project.
 
 [Eslint configuration - Best linting configuration is to use "format on save" and don't use "formatting option of ES Lint"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8231814#questions/20789494)
 
