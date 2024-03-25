@@ -30,6 +30,7 @@ function App() {
       <ConfigureCounter onSet={handleSetClick} />
       <main>
         <Counter initialCount={chosenCount} />
+        <Counter initialCount={0} />
       </main>
     </>
   );
