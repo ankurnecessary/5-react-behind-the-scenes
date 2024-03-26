@@ -1,4 +1,5 @@
 # 5-react-behind-the-scenes
+
 To learn what happens behind the scenes
 Working with:
 
@@ -7,39 +8,44 @@ Working with:
 3. useState()
 4. Derived state from existing state variable.
 5. Tailwind css - [Practice Project 2 - react-project-management]
-6. useRef()
-7. forwardRef()
-8. useImperativeHandle()
-9. createPortal()
-10. createContext()
-11. useContext()
-12. <React.StrictMode>
-13. Children prop
-14. Using rest operator while using component tag.
+6. useRef() helps in accessing the DOM of an element.
+7. useRef() also helps in retaining the parts of the code like a reference to setTimeout(), setInterval(), array, object etc.
+8. useRef() value doesn't change when component function renders again and again because of state function updates.
+9. ```<dialog></dialog>``` is what we use very frequently with useRef() to open or close modals.
+10. forwardRef()
+11. useImperativeHandle()
+12. createPortal()
+13. createContext()
+14. useContext()
 15. useReducer()
-16. useEffect() - with blank dependency array will fire only once at the end of first render of the component.
-17. useEffect() - with dependency array will fire on first render of the component and every time value of the variables in dependency array changes.
-18. useEffect() - with a return function inside useEffect() function. The function returned will fire when the related component dismounts. That is why it is also called clean up function.
-19. We generally use useEffect() for the asynchronous code which will resolve in future and can change the state of the application.
-20. useEffect()'s dependency array should include useState() variables, useContext() variables and props which are used inside the useEffect()'s first function argument.
-21. useCallback() - Whenever we wrap any function inside the useCallback() it stops getting recreated again and again when a component rerenders, if the dependency array is blank. If not then the function in useCallback() will be recreated when the value of any of the dependency change.
-22. In the dependency array of useEffect() and useCallback() function we put props, state variables or other functions that are dependent on the state variables like context values and other functions. You will not add the state updating function of useState() directly.
-23. useState()'s state updating function never gets recreated again in react. So, we need not pass it as a dependency in useCallback() or useEffect().
-24. We have to add **variables related to derived state** as dependencies in useCallback() and useEffect().
-25. ***We should avoid or at least minimize the usage of useEffect() in our application as a best practice.***
-26. useRef() value doesn't change when component function renders again and again and......
-27. If we have multiple components having **key** attribute with them and all of them belong to same entity then we should consider making a separate component for that entity and use **key** attribute over it.
-28. We as a developer cannot consume key prop. It is exclusively for the react.
-29. Why use PropTypes instead of TypeScript? Answer: type-checking props using TypeScript can only be effective when the prop's value is hardcoded. Even though you claim that the data from the API is a number, you won't get any errors when the data is a string. Since type-checking is done during runtime, PropTypes is a better tool for unknown data.
-30. React query is a good plugin for HTTP calls via react application. AJAX
-31. Whenever a component rerenders because of state function being called, it's child components are also rerendered.
-32. [React.memo](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.raq8jq8e7749)
-33. We can use React.memo() with useCallback() too.
-34. [useMemo()](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.cf9uscl5y5c8)
-35. Using key attribute and it's value as the array index in repeating element in the JSX is a bad idea. Instead we should use id in the array elements as the value of the key attribute. It increases performance and remove functionality issues.
-36. Using key attribute in the component tag is another pattern that could help us in re-initializing the component. So, it is like reloading a component with new prop values instead of using useEffect() to do so.
-37. If we have multiple state functions being fired at once, may be within a function, then that doesn't mean that our component will also get rerendered multiple times (once for each state function call). Instead it will render only once.
-38. We can use millionjs to increase the speed and performance of our react project.
+16. <React.StrictMode>
+17. Children prop
+18. Using rest operator while using component tag.
+19. useReducer()
+20. useEffect() - with blank dependency array will fire only once at the end of first render of the component.
+21. useEffect() - with dependency array will fire on first render of the component and every time value of the variables in dependency array changes.
+22. useEffect() - with a return function inside useEffect() function. The function returned will fire when the related component dismounts. That is why it is also called clean up function.
+23. We generally use useEffect() for the asynchronous code which will resolve in future and can change the state of the application.
+24. useEffect()'s dependency array should include useState() variables, useContext() variables and props which are used inside the useEffect()'s first function argument.
+25. useCallback() - Whenever we wrap any function inside the useCallback() it stops getting recreated again and again when a component rerenders, if the dependency array is blank. If not then the function in useCallback() will be recreated when the value of any of the dependency change.
+26. In the dependency array of useEffect() and useCallback() function we put props, state variables or other functions that are dependent on the state variables like context values and other functions. You will not add the state updating function of useState() directly.
+27. useState()'s state updating function never gets recreated again in react. So, we need not pass it as a dependency in useCallback() or useEffect().
+28. We have to add **variables related to derived state** as dependencies in useCallback() and useEffect().
+29. ***We should avoid or at least minimize the usage of useEffect() in our application as a best practice.***
+30. If we have multiple components having **key** attribute with them and all of them belong to same entity then we should consider making a separate component for that entity and use **key** attribute over it.
+31. We as a developer cannot consume key prop. It is exclusively for the react.
+32. Why use PropTypes instead of TypeScript? Answer: type-checking props using TypeScript can only be effective when the prop's value is hardcoded. Even though you claim that the data from the API is a number, you won't get any errors when the data is a string. Since type-checking is done during runtime, PropTypes is a better tool for unknown data.
+33. React query is a good plugin for HTTP calls via react application. AJAX
+34. Whenever a component rerenders because of state function being called, it's child components are also rerendered.
+35. [React.memo](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.raq8jq8e7749)
+36. We can use React.memo() with useCallback() too.
+37. [useMemo()](https://docs.google.com/document/d/1IKjPhw6a3TPKvmeJ9743PljP6ci7UkbkgNa3sQwVRWs/edit#heading=h.cf9uscl5y5c8)
+38. Using key attribute and it's value as the array index in repeating element in the JSX is a bad idea. Instead we should use id in the array elements as the value of the key attribute. It increases performance and remove functionality issues.
+39. Using key attribute in the component tag is another pattern that could help us in re-initializing the component. So, it is like reloading a component with new prop values instead of using useEffect() to do so. It is like using a component afresh.
+40. If we have multiple state functions being fired at once, may be within a function, then that doesn't mean that our component will also get rerendered multiple times (once for each state function call). Instead it will render only once.
+41. We can use millionjs to increase the speed and performance of our react project.
+42. A library like gotbootstrap.com in react is [Material Tailwind](https://www.material-tailwind.com/docs/react/accordion).
+43. Next.js or Remix
 
 [Eslint configuration - Best linting configuration is to use "format on save" and don't use "formatting option of ES Lint"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8231814#questions/20789494)
 
